@@ -24,7 +24,7 @@ build/lx106/patched: build/lx106/Makefile
 
 esp8266-$(VER)/bin/xtensa-lx106-elf-gcc: build/lx106/patched
 	$Qecho CT_STATIC_TOOLCHAIN=y >> $(dir $<)/crosstool-config-overrides
-	$Qcd "$(dir $<)" && $(MAKE) STANDALONE=n TOOLCHAIN="$(TOPDIR)/esp8266-$(VER)" toolchain libhal
+	$Qcd "$(dir $<)" && $(MAKE) STANDALONE=y TOOLCHAIN="$(TOPDIR)/esp8266-$(VER)" toolchain libhal
 
 build/toolchain-esp8266-$(VER).tar.xz: esp8266-$(VER)/bin/xtensa-lx106-elf-gcc
 	@echo 'Packaging toolchain ($@)...'
